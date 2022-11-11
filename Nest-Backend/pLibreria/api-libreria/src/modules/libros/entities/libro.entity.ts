@@ -6,28 +6,28 @@ export class Libro {
     @PrimaryGeneratedColumn('increment')
     id: number;
 
-    @Column('text', { unique: true } )
+    @Column('text', { unique: true })
     title: string;
 
-    @Column('text', { unique: true } )
+    @Column('text', { unique: true })
     isbn: string;
 
-    @Column('text', { unique: true } )
+    @Column('int', {default:0})
     pageCount: number;
 
-    @Column('text', { unique: true } )
+    @Column('text', { unique: true })
     publishedDate: string;
 
-    @Column('text', { unique: true } )
+    @Column('text', { unique: true })
     thumbnailUrl: string;
 
-    @Column('text', { unique: true } )
+    @Column('text', {nullable:true })
     shortDescription: string;
 
-    @Column('text', { unique: true } )
+    @Column('text', { unique: true })
     longDescription: string;
 
-    @Column('text', { unique: true } )
+    @Column('text', { unique: true })
     status: string;
 
 }
