@@ -1,10 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, CannotGetEntityManagerNotConnectedError } from "typeorm";
+import { Cliente } from "src/modules/clientes/entities/cliente.entity";
+import { Entity, PrimaryGeneratedColumn, Column, CannotGetEntityManagerNotConnectedError, OneToOne, ManyToOne } from "typeorm";
 
 @Entity({ name: 'libros' })
 export class Libro {
 
-    @PrimaryGeneratedColumn('increment')
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @Column('text', { unique: true })
     title: string;
@@ -29,6 +30,16 @@ export class Libro {
 
     @Column('text', { unique: true })
     status: string;
+
+
+    //Relaciones
+    //Muchos a uno
+    @ManyToOne(
+        () => Cliente,
+        (cliente) => cliente.libros,
+        { cascade: false }
+    )
+    cliente?: Cliente;
 
 }
 

@@ -33,15 +33,22 @@ export class ClientesService {
     return `This action returns all clientes`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} cliente`;
+  findOne(id:string) {
+    return this.clienteRepository.findOne({
+      where: { 
+        id 
+      },
+      relations: {
+        libros: true
+      }
+    });  
   }
 
-  update(id: number, updateClienteDto: UpdateClienteDto) {
+  update(id: string, updateClienteDto: UpdateClienteDto) {
     return `This action updates a #${id} cliente`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} cliente`;
   }
 }

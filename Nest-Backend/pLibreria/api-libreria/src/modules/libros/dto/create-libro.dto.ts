@@ -38,4 +38,7 @@ export class CreateLibroDto {
     @IsOptional()
     @IsIn(['PUBLISH', 'UNPUBLISH'])
     status?: string;
+
+    @IsString()
+    idCliente?: string;
 }
